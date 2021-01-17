@@ -51,14 +51,15 @@ mutation{addProduct(product:
 A boolean value is returned as the return value. If there is an error, it returns the error.
 
 # 4- UpdateProduct
-mutation{updateProduct(id: 1, input:
-  {
+mutation{updateProduct
+(id: 1, input: {
   name:"product1 Updated",
   price:1,
   barcode:"b1",
   quantity:11
-}{id name quantity barcode price}
-)}
+})
+{id name quantity barcode price}
+}
 
 You can only update your own product. If you enter a productId that is not yours, you will get an error.
 
