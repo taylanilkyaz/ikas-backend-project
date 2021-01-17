@@ -15,10 +15,11 @@ mutation{register(user: {
         password:"q1"
       }){id name surname email}
     }
+
 The email field must match the email type and must be unique.
 User information is returned as the return value. If there is an error, it will return the error.
 
-After registering, you must login.
+After registering, you must log in.
 
 # 2- Login User:
 mutation{login(loginUser:{
@@ -30,6 +31,7 @@ mutation{login(loginUser:{
     refreshToken
   }
 }
+
 AccessToken and RefreshToken are returned as return values. AccessToken was created for 10 minutes. RefreshToken was created for 1 day. Its settings can be changed in authenticationUtils.ts.
 AccessToken is used after logging into the system. When you expire after 10 minutes, you can get new access tokens by running the refreshToken instead of re-logging in. (RefreshToken will be shown in the future)
 
@@ -45,6 +47,7 @@ mutation{addProduct(product:
       quantity:11
     }
 )}
+
 A boolean value is returned as the return value. If there is an error, it returns the error.
 
 # 4- UpdateProduct
@@ -56,6 +59,7 @@ mutation{updateProduct(id: 1, input:
   quantity:11
 }{id name quantity barcode price}
 )}
+
 You can only update your own product. If you enter a productId that is not yours, you will get an error.
 
 # 5- GetProductDetails
@@ -64,6 +68,7 @@ query{getProductDetails(id : 2){
   price
   quantity
 }}
+
 User can only see their own products. Therefore, it has to enter the id of one of its products.
 
 # 6- Products
@@ -73,6 +78,7 @@ query{products{
   quantity
   barcode
 }}
+
 User can only see their own products.
 
 # 7- DeleteProduct
